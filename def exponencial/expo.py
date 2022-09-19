@@ -5,11 +5,15 @@ def expo(base, iter):
   if iter < 0:
     print("Expoente negativo, operação inválida!")
     return False
+    
+  elif iter == 0:
+    res = 1
+
   for i in range(loopEx):
     res *= base
   
   return res
 
-exec = expo(27, 4)
+exec = expo(2, 16)
 
 print(exec)
