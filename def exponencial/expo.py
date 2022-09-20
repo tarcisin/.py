@@ -9,11 +9,14 @@ def expo(base, iter):
   elif iter == 0:
     res = 1
 
+  elif iter == 1:
+    res = base
+
   for i in range(loopEx):
     res *= base
   
   return res
 
-exec = expo(2, 16)
+exec = expo(2, 1)
 
 print(exec)
