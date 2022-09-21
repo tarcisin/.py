@@ -1,10 +1,12 @@
+from array import array
 from operator import getitem
 
 
 class Array:
 
-  def __init__(self, capacity, fillValue = None, logicalSize = 0):
+  def __init__(self, capacity, fillValue = None):
     self.items = list()
+    logicalSize = 0
     for count in range(capacity):
       self.items.append(fillValue)
   
@@ -22,15 +24,13 @@ class Array:
       return self.items[index]
     raise Exception("O índice definido não está contido no domínio de posições do array")
 
-  def __setitem__(self,index,newItem):
+  def __setitem__(self, index, newItem):
     if 0 <= index < len(self.items):
       self.items[index]=newItem
-    raise Exception("O índice definido não está contido no domínio de posições do array")
+      self.logicalSize += 1
+    else:
+      raise Exception("O índice definido não está contido no domínio de posições do array")
 
-  def size(self, logicalSize):
-    for i in range(len(object)):
-      if self.items[i] != None:
-        self.logicalSize += 1
+  def size(self):
     return self.logicalSize
     
-  
