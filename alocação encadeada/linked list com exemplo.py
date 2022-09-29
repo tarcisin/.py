@@ -114,3 +114,41 @@ class SinglyLinkedStructure:
       removedItem = probe.next.inData
       probe.next = probe.next.next
       return removedItem
+
+lista = SinglyLinkedStructure()
+
+lista.addToEnd(5)
+lista.addToEnd(6)
+lista.addToEnd(7)
+
+lista.addToStart(4)
+
+lista.addToEnd(8)
+
+lista.through()
+
+print(lista.getValue(3))
+
+lista.swapForValue(6, 3)
+
+lista.through()
+
+lista.swapForIndex(4, 6)
+
+lista.through()
+
+lista.swapForIndex(4, 8)
+lista.addToStart(3)
+
+lista.through()
+
+lista.insertByIndex(3, 6)
+
+lista.through()
+
+lista.removeOnStart()
+
+lista.removeByIndex(2)
+
+lista.removeOnEnd()
+lista.through()
