@@ -1,0 +1,283 @@
+EXERCÍCIO
+
+import random
+print("linguagem da cobrinha devradora de memória")
+
+def main():
+
+  smaller = int(input("Enter the smaller number: "))
+  larger = int(input("Enter the larger number: "))
+  myNumber = random.randint(smaller, larger)
+  count = 0
+  while True:
+    count+= 1
+    userNumber = int(input("Enter your guess: "))
+    if userNumber < myNumber:
+        print("Too small")
+    if userNumber > myNumber:
+        print("Too large")
+    else:
+        print("You got in", count, "tries!")
+        break
+if __name__ == "__main__":
+  main()
+
+EXERCÍCIO 1
+
+import math
+
+def main():
+
+  radius = float(input("Enter the radius: "))
+  diameter = radius * 2
+  circumf = math.pi * 2 * radius
+  area = math.pi * (radius * radius)
+  vol = 4/3 * math.pi * (radius * radius * radius)
+
+  print("Diameter: ", diameter, "\nCircumference: ", circumf, "\n Area: ", area, "\nVolume: ", vol)
+
+if __name__ == "__main__":
+  main()
+
+EXERCÍCIO 2
+
+def main():
+
+  hourPaym = float(input("Enter the hour payment of the employee: "))
+  ttlRegHrsWrkd = int(input("Enter the total amount of regular worked hours: "))
+  extraHoursWrkd = int(input("Insert total overtime worked: "))
+  overtimePaym = extraHoursWrkd * (hourPaym * 1.5)
+  regTimePaym = ttlRegHrsWrkd * hourPaym
+  totalWeeklyPaym = regTimePaym + overtimePaym
+
+  print("Weekly total pay: ", totalWeeklyPaym)
+
+if __name__ == "__main__":
+  main()
+
+EXERCÍCIO 3
+
+alturaOrig = float(input("Insira a altura de que a bola foi jogada: "))
+razaoKick = 0.6
+alturaAtual = alturaOrig * razaoKick
+distanciaTotal = alturaOrig + alturaAtual
+
+aprKick = int(input("Determine a quantidade de vezes em que a bola deve quicar: "))
+
+kicksTotais = 1
+for i in range(aprKick):
+  kicksTotais = kicksTotais + 1
+  distanciaTotal = alturaOrig + alturaAtual
+  alturaAtual * 0.6
+  
+print("A distância total percorrida pela bola foi de ", distanciaTotal, ".\n")
+print("A quantidade total de kicks da bola foi de: ", kicksTotais)
+
+EXERCÍCIO 4
+
+import math
+
+iteracoes = int(input("Insira a quantidade de iterações: "))
+numIter = 0
+denm = 1
+marcador = True
+for i in range(iteracoes):
+  numIter = numIter + 1 / denm if marcador else numIter - 1 / denm
+  denm += 2
+  marcador = not marcador
+
+pi = numIter * 4
+print("O valor aproximadi de pi baseado na aproximação de " + str(iteracoes) + " iterações, é " + str(pi))
+
+EXERCÍCIO 5
+
+import tabulate 
+
+print("Plano de Crédito: TidBit Computer Store")
+precoCompra = float(input("Insira o preço de compra: "))
+
+pagInicial = precoCompra * 0.10
+juroAnual = 0.12
+pagMensal = (precoCompra - pagInicial) * 0.05
+saldoAtual = precoCompra - pagInicial
+mes = 1
+
+print("Pagamento inicial: ", pagInicial)
+print('{:<18s} {:<18s} {:<18s} {:<18s} {:<18s} {:<18s}'.format ('Mês', 'Saldo Devido', 'Juros-Mês', 'Valor-Principal', 'Valor Total', 'Saldo Rem.'))
+
+while saldoAtual > 0:
+  if(pagMensal > saldoAtual):
+    valPrinc = saldoAtual
+    pag = saldoAtual
+    saldoRem = 0
+  else:
+    juroMes = saldoAtual * (juroAnual / 12)
+    valPrinc = pagMensal - juroMes
+    pag = pagMensal + juroMes
+    saldoRem = saldoAtual - valPrinc
+  print('{:<18d} {:<18.2f} {:<18.2f} {:<18.2f} {:<18.2f} {:<18.2f}'.format(mes, saldoAtual, juroMes, valPrinc, pag, saldoRem))
+  saldoAtual = saldoRem
+  mes += 1
+
+  EXERCÍCIO 6 
+
+  fileName = str(input("Insira o nome do arquivo a ser lido: "))
+"""O ARQUIVO A SER EXECUTADO NESSE CÓDIGO É O arquivo.py"""
+
+print("{:<25s} {:<16s} {:<4s}".format("Sobrenome", "Salário-Hora", "Horas Trabalhadas"))
+
+with open(fileName, "r") as fileMain:
+  for line in fileMain: 
+    dados = line.split()
+    print('{:<25s} {:<16s} {:<4s}'.format(dados[0], dados[1], dados[2]))
+
+fileMain.close()
+
+EXERCÍCIO 7
+
+import statistics
+
+
+listLen = int(input("Defina o número de posições da lista: "))
+
+listBase = []
+
+for x in range(listLen):
+  listBase.append(int(input("Insira o valor: ")))
+
+listBase.sort()
+
+modo = statistics.mode(listBase)
+mediana = statistics.median(listBase)
+print(listBase)
+
+print("A moda dos valores inseridos é ", modo, " e a mediana é ", mediana)
+
+EXERCÍCIO 8 
+
+from fileinput import filename
+
+
+fileName = str(input("Insira o nome do arquivo a ser lido: "))
+"""O ARQUIVO A SER EXECUTADO NESSE CÓDIGO É O morphine.txt"""
+
+
+with open(fileName, "r") as fileMain:
+  lineNum = len(fileMain.readlines())
+  for line in fileMain: 
+    print(fileMain.readline())
+
+  print("O número total de linhas é: ", lineNum)
+  lineProg = int(input("Defina a linha que deseja acessar: "))
+
+while True:
+  currentLine = 0
+  if lineProg > 0 and lineProg <= lineNum:
+    fileMain = open(fileName, "r")
+    for lines in fileMain:
+      currentLine += 1
+      if currentLine == lineProg:
+        print(lines)
+        fileMain.close()
+        quit()
+  if lineProg == 0:
+    fileMain.close()
+    quit()
+
+
+EXERCÍCIO 9 
+
+import math
+import random
+from re import T
+
+value = int(input("Defina um valor para ser advinhado: "))
+highest = int(input("Defina o valor máximo da área de busca: "))
+lowest = int(input("Defina o valor mínimo da área de busca: "))
+
+r = int(random.randrange(lowest, highest))
+area = math.ceil((math.log(2, 10) * (highest - lowest))) + 1
+j = 0
+
+while j != area:
+  print("O número gerado é: ", r)
+  take = str(input("Defina se o seu número é maior (>), menor (<), ou se está correto (=): "))
+  if j == area:
+    print("Você está trapaceando!")
+    break
+
+  if take == "=":
+    j += 1
+    print("Você acertou em ", j, " tentativas.")
+    break
+
+  elif take == '>':
+    t = random.randrange(take, highest)
+    r = t
+    j += 1
+
+  elif take == '<':
+    t = random.randrange(lowest, take)
+    r = t
+    j += 1
+  
+EXERCÍCIO 10 
+
+import stats
+import math
+
+class Student:
+  def __init__(self, nome, *notas):
+    self.nome = ' '
+    self.notas = [0, 0, 0]
+    pass
+
+  def InserirNota(self):
+    self.notas[0] =  float(input("Insira o Valor da Nota 1: "))
+    self.notas[1] =  float(input("Insira o Valor da Nota 2: "))
+    self.notas[2] =  float(input("Insira o Valor da Nota 3: "))
+  
+  def InserirNome(self):
+    self.nome = input("Insira o nome do estudante: ")
+    return(self.nome)
+
+  def obterNotaAlta(self):
+    self.pontoMaisAlto = max(self.notas)
+    return(self.pontoMaisAlto)
+  
+  def obterNotaMedia(self):
+    self.notaMedia = math.mean(self.notas)
+    return (self.notaMedia)
+
+  def exibirDados(self):
+    print("Nome: ", self.nome)
+    print("Ponto 1: ", self.notas[0])
+    print("Ponto 2: ", self.notas[1])
+    print("Ponto 3: ", self.notas[2])
+    prog = str(input("Deseja alterar alguma nota? (S/N)"))
+    if(prog == "S"):
+      notaDecider = int(input("Qual das notas deseja alterar? (0/1/2)"))
+      if (notaDecider == 0):
+        self.nota[0] = float(input("Insira o novo valor da nota: "))
+      if (notaDecider == 1):
+        self.nota[1] = float(input("Insira o novo valor da nota: "))
+      if (notaDecider == 2):
+        self.nota[2] = float(input("Insira o novo valor da nota: "))
+      else:
+        print("Valor inválido!")
+    else:
+      print("\n")
+ 
+def __main__(nome, *notas):
+  aluno1 = Student(nome, *notas)
+  aluno1.InserirNome(nome)
+  aluno1.InserirNota(*notas)
+  aluno1.exibirDados(nome, *notas)
+  
+  aluno1.obterNotaAlta(*notas)
+  print("A nota mais alta é ", aluno1.pontoMaisAlto)
+
+  aluno1.obterNotaMedia(*notas)
+  print("A nota média é ", aluno1.notaMedia)
+
+__main__()
