@@ -16,10 +16,14 @@ class LinkedStack:
     else:
       res = Node(value, self.head)
       self.head = res
+    self._size += 1
 
   def pop(self):
     if self.head:
-      return self.head
+      self._size -= 1
+      probe = self.head
+      self.head = self.head.next
+      return probe.inData
     else:
       raise Exception("ERRO: A pilha não possui conteúdo.")
 
@@ -29,5 +33,28 @@ class LinkedStack:
     else:
       probe = self.head
       while(probe):
-        print(probe.inData, "\n")
+        print(probe.inData)
         probe = probe.next
+
+  def __len__(self): # RETORNA O TAMANHO DA LISTA
+    return self._size
+
+"""
+pilha = LinkedStack()
+
+pilha.push(5)
+pilha.push(4)
+pilha.push(3)
+pilha.push(2)
+pilha.push(1)
+
+pilha.through()
+
+print(pilha.__len__())
+
+out = pilha.pop()
+print(out)
+pilha.through()
+
+print(pilha.__len__())
+"""
